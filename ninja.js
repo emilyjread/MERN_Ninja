@@ -1,7 +1,6 @@
 
-
 class Ninja{
-    constructor(name, health){
+    constructor(name){
         this.name = name;
         this.health=100;
         this.speed = 3;
@@ -17,9 +16,30 @@ class Ninja{
         this.health+=10;
     }
 }
-
 const ninja1= new Ninja("Emily")
-ninja1.sayName();
-ninja1.showStats();
-ninja1.drinkSake();
-ninja1.showStats();
+
+
+class Sensei extends Ninja{
+    constructor(name){
+        super(name);
+        this.health=200;
+        this.speed=10;
+        this.strength=10;
+        this.wisdom=10; 
+    }
+    speakWisdom(){
+        this.drinkSake();
+        const wisdoms= ["An apple a day keeps anyone away, if you throw it hard enough", "A cavity search is not the same thing as a search for cavities", " Ask again later"]
+        console.log(wisdoms[Math.floor(Math.random()*3)])
+
+    }
+    showStats(){
+        super.showStats()
+        console.log("wisdom: " + this.wisdom)
+    }
+}
+
+const sensei1 = new Sensei("Ylime")
+
+sensei1.speakWisdom()
+sensei1.showStats()
